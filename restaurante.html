@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurante | GUSTARTE</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .restaurant-photo {
+      height: 200px;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .restaurant-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Gustarte Logo" class="logo-img">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="restaurante.html"class="active">Restaurante</a></li>
+        <li><a href="noutati.html">Noutăți</a></li>
+        <li><a href="contact.html">Contacte</a></li>
+      </ul>
+    </nav>
+    <div class="social">
+      <img src="images/instagram.jpg" alt="Instagram">
+      <img src="images/tiktok.jpg" alt="TikTok">
+      <img src="images/facebook.png" alt="Facebook">
+    </div>
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="cos.html" class="cart-btn">
+      <img src="images/cart.png" alt="Coș de cumpărături" class="cart-icon">
+      <span id="cart-count" class="cart-count">0</span>
+    </a>
+  </header>
+  <main class="main-content">
+    <h1 class="page-title">Restaurantele noastre</h1>
+    <div class="restaurant-container">
+      <div class="restaurant-card">
+        <div class="restaurant-image">
+          <img src="images/restaurant1.jpg" alt="Zen Garden">
+        </div>
+        <div class="restaurant-info">
+          <h3>Zen Garden</h3>
+          <p class="cuisine-type">Bucătărie japoneză contemporană</p>
+          <p class="address"><i class="fas fa-map-marker-alt"></i> Str. Eminescu 15, Chișinău</p>
+          <div class="restaurant-photo">
+            <img src="images/restaurant-interior1.jpg" alt="Interior Zen Garden">
+          </div>
+          <div class="restaurant-details">
+            <p><i class="fas fa-clock"></i> Program: 10:00 - 22:00</p>
+            <p><i class="fas fa-phone"></i> +373 22 123 456</p>
+          </div>
+          <a href="tel:+37322123456" class="contact-btn"><i class="fas fa-phone"></i> Sună</a>
+          <a href="#" class="menu-btn"><i class="fas fa-utensils"></i> Vezi meniu</a>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="restaurant-image">
+          <img src="images/restaurant2.png" alt="Urban Bowl">
+        </div>
+        <div class="restaurant-info">
+          <h3>Urban Bowl</h3>
+          <p class="cuisine-type">Fusion healthy food & sucuri naturale</p>
+          <p class="address"><i class="fas fa-map-marker-alt"></i> Bd. Ștefan cel Mare 112</p>
+          <div class="restaurant-photo">
+            <img src="images/restaurant-interior2.png" alt="Interior Urban Bowl">
+          </div>
+          <div class="restaurant-details">
+            <p><i class="fas fa-clock"></i> Program: 08:00 - 23:00</p>
+            <p><i class="fas fa-phone"></i> +373 22 234 567</p>
+          </div>
+          <a href="tel:+37322234567" class="contact-btn"><i class="fas fa-phone"></i> Sună</a>
+          <a href="#" class="menu-btn"><i class="fas fa-utensils"></i> Vezi meniu</a>
+        </div>
+      </div>
+
+      <div class="restaurant-card">
+        <div class="restaurant-image">
+          <img src="images/restaurant3.png" alt="Viva Verde">
+        </div>
+        <div class="restaurant-info">
+          <h3>Viva Verde</h3>
+          <p class="cuisine-type">Vegan & eco-friendly</p>
+          <p class="address"><i class="fas fa-map-marker-alt"></i> Str. București 60</p>
+          <div class="restaurant-photo">
+            <img src="images/restaurant-interior3.png" alt="Interior Viva Verde">
+          </div>
+          <div class="restaurant-details">
+            <p><i class="fas fa-clock"></i> Program: 09:00 - 21:00</p>
+            <p><i class="fas fa-phone"></i> +373 22 345 678</p>
+          </div>
+          <a href="tel:+37322345678" class="contact-btn"><i class="fas fa-phone"></i> Sună</a>
+          <a href="#" class="menu-btn"><i class="fas fa-utensils"></i> Vezi meniu</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 GUSTARTE. All rights reserved.</p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
+

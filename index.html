@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MainPage</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #DEDEDE; font-family: 'Inter', sans-serif;">
+  <header class="navbar">
+  <div class="logo">
+    <a href="index.html" style="display: flex; align-items: center;">
+      <img src="images/logo.png" alt="Gustarte Logo" class="logo-img">
+    </a>
+  </div>
+    <nav>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="restaurante.html">Restaurante</a></li>
+        <li><a href="noutati.html">Noutăți</a></li>
+        <li><a href="contact.html">Contacte</a></li>
+      </ul>
+    </nav>
+    <div class="social">
+      <img src="images/instagram.jpg" alt="Instagram">
+      <img src="images/tiktok.jpg" alt="TikTok">
+      <img src="images/facebook.png" alt="Facebook">
+    </div>
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="cos.html" class="cart-btn">
+    <img src="images/cart.png" alt="Coș de cumpărături" class="cart-icon"> 
+     <span id="cart-count" class="cart-count">0</span>
+    </a>
+  </header>
+ <section class="img-slider">
+  <div class="slider-container">
+    <button id="prev" class="slider-btn">&#10094;</button>
+    <img id="slider-image" src="images/slider1.png" alt="Slider" class="slider-img">
+    <button id="next" class="slider-btn">&#10095;</button>
+    <div class="slider-dots-container"></div>
+  </div>
+</section>
+    <section class="bucate">
+      <h2>Bucate noi</h2>
+      <div class="card-container">
+        <div class="food-card">
+  <a href="produs1.html" class="product-image-link">
+    <img src="images/product1.png" alt="Ramen cu pui picant">
+  </a>
+  <h3>Ramen cu pui picant</h3>
+  <p class="ingrediente">Tăiței ramen, supă de pui, ou marinat, alge nori, ceapă verde</p>
+  <p class="pret">110 MDL</p>
+  <button class="adauga" onclick="addToCart('Ramen cu pui picant', 110, 'images/product1.png')">Adaugă</button>
+</div>
+
+<div class="food-card">
+  <a href="produs2.html" class="product-image-link">
+    <img src="images/product2.jpg" alt="Bowl cu somon și mango">
+  </a>
+  <h3>Bowl cu somon și mango</h3>
+  <p class="ingrediente">Somon afumat, mango, orez sushi, avocado, edamame, sos soia</p>
+  <p class="pret">125 MDL</p>
+  <button class="adauga" onclick="addToCart('Bowl cu somon și mango', 125, 'images/product2.jpg')">Adaugă</button>
+</div>
+
+<div class="food-card">
+  <a href="produs3.html" class="product-image-link">
+    <img src="images/product3.jpg" alt="Burger vegan cu năut">
+  </a>
+  <h3>Burger vegan cu năut</h3>
+  <p class="ingrediente">Chiflă integrală, chiftea de năut, castraveți murați, sos tahini</p>
+  <p class="pret">85 MDL</p>
+  <button class="adauga" onclick="addToCart('Burger vegan cu năut', 85, 'images/product3.jpg')">Adaugă</button>
+</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 GUSTARTE. All rights reserved.</p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coș de cumpărături - Gustarte</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #F5F5F5; font-family: 'Inter', sans-serif;">
+  <header class="navbar">
+    <div class="logo">
+    <a href="index.html" style="display: flex; align-items: center;">
+      <img src="images/logo.png" alt="Gustarte Logo" class="logo-img">
+    </a>
+  </div>
+    <nav>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="restaurante.html">Restaurante</a></li>
+        <li><a href="noutati.html">Noutăți</a></li>
+        <li><a href="contact.html">Contacte</a></li>
+      </ul>
+    </nav>
+    <div class="social">
+      <img src="images/instagram.jpg" alt="Instagram">
+      <img src="images/tiktok.jpg" alt="TikTok">
+      <img src="images/facebook.png" alt="Facebook">
+    </div>
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="cos.html" class="cart-btn">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count" class="cart-count">0</span>
+    </a>
+  </header>
+
+  <main class="cart-container">
+    <div class="cart-header">
+      <h1><i class="fas fa-shopping-basket"></i> Coșul tău</h1>
+      <p id="item-count">0 produse</p>
+    </div>
+
+    <div class="cart-grid" id="cart-items-container">
+      <div class="empty-cart-message">
+        <i class="fas fa-shopping-basket"></i>
+        <h3>Coșul tău este gol</h3>
+        <p>Începe să adaugi produse din magazin</p>
+        <a href="shop.html" class="btn-primary">Vezi meniul</a>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <div class="summary-card">
+        <h3>Sumar comandă</h3>
+        
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="subtotal">0 MDL</span>
+        </div>
+        
+        <div class="summary-row">
+          <span>Livrare</span>
+          <span>25 MDL</span>
+        </div>
+        
+        <hr>
+        
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="total-price">25 MDL</span>
+        </div>
+        
+        <button class="btn-checkout" id="checkout-btn">
+          Finalizează comanda <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 GUSTARTE. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Termeni și condiții</a>
+        <a href="#">Politica de confidențialitate</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cartItemsContainer = document.getElementById('cart-items-container');
+      const cartCountElement = document.getElementById('cart-count');
+      const itemCountElement = document.getElementById('item-count');
+      const subtotalElement = document.getElementById('subtotal');
+      const totalPriceElement = document.getElementById('total-price');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const emptyCartMsg = document.querySelector('.empty-cart-message');
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountElement.textContent = totalItems;
+      }
+
+      function renderCartItems() {
+        if (cart.length === 0) {
+          emptyCartMsg.style.display = 'flex';
+          cartItemsContainer.innerHTML = '';
+          cartItemsContainer.appendChild(emptyCartMsg);
+          subtotalElement.textContent = '0 MDL';
+          totalPriceElement.textContent = '25 MDL';
+          itemCountElement.textContent = '0 produse';
+          checkoutBtn.disabled = true;
+          return;
+        }
+
+        emptyCartMsg.style.display = 'none';
+        checkoutBtn.disabled = false;
+        
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const total = subtotal + 25; 
+        
+        subtotalElement.textContent = `${subtotal.toFixed(2)} MDL`;
+        totalPriceElement.textContent = `${total.toFixed(2)} MDL`;
+        itemCountElement.textContent = `${cart.reduce((sum, item) => sum + item.quantity, 0)} produse`;
+        
+        cartItemsContainer.innerHTML = '';
+        cart.forEach((item, index) => {
+          const cartItem = document.createElement('div');
+          cartItem.className = 'cart-item-card';
+          cartItem.innerHTML = `
+            <div class="cart-item-img">
+              <img src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="cart-item-info">
+              <h3>${item.name}</h3>
+              <p class="price">${item.price.toFixed(2)} MDL</p>
+            </div>
+            <div class="cart-item-controls">
+              <div class="quantity-controls">
+                <button class="qty-btn minus" data-index="${index}">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <span class="quantity">${item.quantity}</span>
+                <button class="qty-btn plus" data-index="${index}">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+              <button class="remove-btn" data-index="${index}">
+                <i class="fas fa-trash"></i> Elimină
+              </button>
+            </div>
+          `;
+          cartItemsContainer.appendChild(cartItem);
+        });
+
+        document.querySelectorAll('.qty-btn.minus').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = this.dataset.index;
+            if (cart[index].quantity > 1) {
+              cart[index].quantity--;
+            } else {
+              cart.splice(index, 1);
+            }
+            saveCart();
+          });
+        });
+
+        document.querySelectorAll('.qty-btn.plus').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = this.dataset.index;
+            cart[index].quantity++;
+            saveCart();
+          });
+        });
+
+        document.querySelectorAll('.remove-btn').forEach(btn => {
+          btn.addEventListener('click', function() {
+            const index = this.dataset.index;
+            cart.splice(index, 1);
+            saveCart();
+          });
+        });
+      }
+
+      function saveCart() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        renderCartItems();
+      }
+
+      checkoutBtn.addEventListener('click', function() {
+        if (cart.length > 0) {
+          alert('Comanda a fost plasată cu succes!');
+          cart = [];
+          saveCart();
+        }
+      });
+
+      updateCartCount();
+      renderCartItems();
+    });
+  </script>
+</body>
+</html>

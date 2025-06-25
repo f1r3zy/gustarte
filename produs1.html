@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produs1</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="images/logo.png" alt="Gustarte Logo" class="logo-img">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="restaurante.html">Restaurante</a></li>
+        <li><a href="noutati.html">Noutăți</a></li>
+        <li><a href="contact.html">Contacte</a></li>
+      </ul>
+    </nav>
+    <div class="social">
+      <img src="images/instagram.jpg" alt="Instagram">
+      <img src="images/tiktok.jpg" alt="TikTok">
+      <img src="images/facebook.png" alt="Facebook">
+    </div>
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="cos.html" class="cart-btn">
+      <img src="images/cart.png" alt="Coș de cumpărături" class="cart-icon"> 
+      <span id="cart-count" class="cart-count">0</span>
+    </a>
+  </header>
+
+  <main class="product-page">
+    <div class="product-container">
+      <div class="product-image">
+        <img src="images/product1.png" alt="Ramen cu pui picant">
+      </div>
+      <div class="product-details">
+        <h1>Ramen cu pui picant</h1>
+        <p class="product-price">110 MDL</p>
+        <p class="product-description">
+          O versiune autentică a ramen-ului japonez cu un twist picant. Tăiței ramen proaspeți în supă de pui bogată, garnisită cu ou marinat moale, alge nori crocante și ceapă verde proaspătă.
+        </p>
+        <div class="product-actions">
+          <button class="add-to-cart" onclick="addToCart('Ramen cu pui picant', 110, 'images/product1.png')">Adaugă în coș</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GUSTARTE. All rights reserved.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
+

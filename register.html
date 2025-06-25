@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RegisterPage</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #DEDEDE; font-family: 'Inter', sans-serif;">
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" style="display: flex; align-items: center;">
+        <img src="images/logo.png" alt="Gustarte Logo" class="logo-img">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Shop</a></li>
+        <li><a href="restaurante.html">Restaurante</a></li>
+        <li><a href="noutati.html">Noutăți</a></li>
+        <li><a href="contact.html">Contacte</a></li>
+      </ul>
+    </nav>
+    <div class="social">
+      <img src="images/instagram.jpg" alt="Instagram">
+      <img src="images/tiktok.jpg" alt="TikTok">
+      <img src="images/facebook.png" alt="Facebook">
+    </div>
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="cos.html" class="cart-btn">
+      <img src="images/cart.png" alt="Cart Icon" class="cart-icon">
+      <span id="cart-count" class="cart-count">0</span>
+    </a>
+  </header>
+  <div class="blue-box">
+    <div class="white-box register-form">
+      <h2>Register</h2>
+      <p>Crează un cont nou</p>
+      <form>
+        <div class="input-container">
+          <img src="images/user.png" alt="User Icon" class="input-icon">
+          <input type="text" placeholder="Nume de utilizator">
+        </div>
+        <div class="input-container">
+          <img src="images/key-solid.svg" alt="Key Icon" class="input-icon">
+          <input type="password" placeholder="Parolă">
+        </div>
+        <div class="input-container">
+          <img src="images/key-solid.svg" alt="Key Icon" class="input-icon">
+          <input type="password" placeholder="Confirmă parola">
+        </div>
+        <button type="submit" class="login-submit-btn">Înregistrează-te</button>
+        <p class="register-text">Ai deja un cont? <a href="login.html">Loghează-te</a></p>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 GUSTARTE. All rights reserved.</p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
+
